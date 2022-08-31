@@ -17,7 +17,6 @@ struct Cli {
 
 fn main() {
     let cli = Cli::parse();
-    println!("{:?}", cli);
     let path = match cli.path {
         Some(user_path) if PathBuf::from(&user_path).exists() => PathBuf::from(user_path),
         _ => std::env::current_dir().unwrap()
